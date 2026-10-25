@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#080d16" />
+  <title>CIPHER HUB | Encryption Console</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="ambient ambient-one"></div><div class="ambient ambient-two"></div>
+  <header class="topbar">
+    <a class="brand" href="#" aria-label="Cipher Hub home">
+      <span class="brand-mark">C<span>H</span></span>
+      <span class="brand-copy"><strong>CIPHER<span>HUB</span></strong><small>ENCRYPTION CONSOLE</small></span>
+    </a>
+    <div class="system-status"><span class="status-dot"></span> LOCAL CONSOLE <span class="status-divider">/</span> <span id="engineStatus">JS ENGINE ONLINE</span></div>
+  </header>
+  <main class="layout">
+    <section class="intro">
+      <div class="eyebrow"><span class="eyebrow-line"></span> PRIVATE CRYPTOGRAPHY WORKSPACE</div>
+      <h1>Your text.<br /><span>Your rules.</span></h1>
+      <p class="intro-copy">Transform messages with your three custom cipher modes in one focused workspace.</p>
+      <div class="intro-foot"><span class="tiny-shield">⌑</span> All encryption runs locally in your browser.</div>
+    </section>
+    <section class="console panel">
+      <div class="panel-head"><div><div class="panel-kicker">CIPHER TERMINAL <span class="live-pill">READY</span></div><h2>Encryption workspace</h2></div><div class="terminal-icon">⌘</div></div>
+      <div class="field-label">01 <span>SELECT CIPHER MODE</span></div>
+      <div class="mode-grid" role="group" aria-label="Cipher mode">
+        <button class="mode-card active" data-mode="super" type="button"><span class="mode-code">01 / S</span><strong>SUPER</strong><small>Single-key mode</small><span class="mode-check">✓</span></button>
+        <button class="mode-card" data-mode="yam" type="button"><span class="mode-code">02 / Y</span><strong>YAM</strong><small>Dual-key mode</small><span class="mode-check">✓</span></button>
+        <button class="mode-card" data-mode="dany" type="button"><span class="mode-code">03 / D</span><strong>DANY</strong><small>Fixed-key mode</small><span class="mode-check">✓</span></button>
+      </div>
+      <div class="field-label operation-label">02 <span>CHOOSE OPERATION</span></div>
+      <div class="segmented">
+        <button id="encryptBtn" class="segment active" type="button"><span>↗</span> Encrypt</button>
+        <button id="decryptBtn" class="segment" type="button"><span>↙</span> Decrypt</button>
+      </div>
+      <div class="key-grid" id="keyFields">
+        <label class="field" id="key1Wrap"><span class="label-row">SECRET KEY <span class="required">REQUIRED</span></span><input id="key1" type="password" placeholder="Enter your secret key" autocomplete="off" /><span class="field-hint">SUPER uses one key; YAM uses this as key 1.</span></label>
+        <label class="field hidden" id="key2Wrap"><span class="label-row">SECOND KEY <span class="required">REQUIRED</span></span><input id="key2" type="password" placeholder="Enter second key" autocomplete="off" /><span class="field-hint">YAM requires two non-empty keys.</span></label>
+      </div>
+      <div class="fixed-key-note hidden" id="fixedKeyNote"><span>ⓘ</span> DANY uses its built-in fixed sequence. No key input is required.</div>
+      <div class="text-head"><div class="field-label">03 <span id="inputLabel">INPUT TEXT</span></div><span id="charCount">0 CHARACTERS</span></div>
+      <div class="textarea-wrap"><textarea id="inputText" spellcheck="false" placeholder="Type or paste your message here..."></textarea><div class="textarea-bottom"><span class="input-format"><span class="format-dot"></span><span id="inputFormat">PLAIN TEXT → HEX</span></span><button class="text-action" id="clearBtn" type="button">Clear input ×</button></div></div>
+      <button class="run-btn" id="runBtn" type="button"><span id="runIcon">↗</span><span id="runLabel">Encrypt message</span><span class="run-arrow">→</span></button>
+      <p class="notice" id="notice" role="status">JavaScript cipher engine is ready. Choose a mode and run an operation.</p>
+      <div class="output-head"><div class="field-label">04 <span>OUTPUT RESULT</span></div><button class="text-action" id="copyBtn" type="button" disabled>▢ Copy result</button></div>
+      <div class="output-box" id="outputBox"><div class="output-placeholder"><span class="output-symbol">⌁</span><span>Your result will appear here</span><small>Run an operation to generate output</small></div></div>
+      <div class="output-meta"><span id="outputType">AWAITING INPUT</span><span id="outputCount">—</span></div>
+      <p class="security-note"><strong>Security note:</strong> SUPER, YAM and DANY are custom educational ciphers, not modern secure encryption. Do not use them to protect sensitive information.</p>
+    </section>
+    <footer><span>© CIPHER HUB</span><span>BUILT FOR EXPLORATION <i>◆</i></span></footer>
+  </main>
+  <script src="app.js"></script>
+</body>
+</html>
